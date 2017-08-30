@@ -2,6 +2,18 @@
 
 > Vue Monthly Picker Components
 
+# Install
+```
+npm install vue-monthly-picker --save
+```
+```javascript
+import VueMonthlyPicker from 'vue-monthly-picker'
+Vue.component('my-component', {
+    components: {
+        VueMonthlyPicker
+    }
+});
+```
 # Usage
 
 ```html
