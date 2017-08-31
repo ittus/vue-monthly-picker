@@ -1,11 +1,24 @@
 {
   "name": "vue-monthly-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue Monthly Picker",
   "author": "Vu Minh Thang <vuminhthang.cm@gmail.com>",
   "main": "dist/lib/vue-monthly-picker.min.js",
   "private": false,
   "license": "MIT",
+  "homepage": "https://github.com/ittus/vue-monthly-picker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ittus/vue-monthly-picker"
+  },
+  "keywords": [
+    "month-select",
+    "month-option",
+    "monthpicker",
+    "month-picker",
+    "vue-component",
+    "vuejs"
+  ],
   "scripts": {
     "prepublishOnly": "npm run build",
     "dev": "npm-run-all --parallel dev:lib dev:docs",

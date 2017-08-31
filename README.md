@@ -2,6 +2,7 @@
 
 > Vue Monthly Picker Components
 
+Checkout demo at https://ittus.github.io/vue-monthly-picker/
 # Install
 ```
 npm install vue-monthly-picker --save
@@ -29,6 +30,7 @@ Vue.component('my-component', {
 |-----------------------|-----------------|-------------|------------------------------------------|
 | disabled                 | Boolean    |      false     | Enable/disable component             |
 | monthLabels                  | Array          |    `['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']`         | Customize month labels                      |
+| placeHolder                  | String          |    ''         | Place holder when value is null                      |
 
 ## Build Setup
 
