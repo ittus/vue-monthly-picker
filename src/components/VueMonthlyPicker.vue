@@ -143,115 +143,115 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-  $lightgray: #d4d4d4;
+<style lang="scss" scoped>
+$lightgray: #d4d4d4;
 
-  .picker {
-    .next,
-    .prev {
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    .monthItem {
-      .item {
-        border-top: 1px solid $lightgray;
-        &:hover {
-          cursor: pointer;
-          background-color: $lightgray;
-        }
-      }
-    }
-
-    .flexbox {
-      padding: 0px;
-      display: flex;
-      flex-wrap: wrap;
-      div {
-        flex-grow: 1;
-        padding: 15px 0;
-      }
-      .item {
-        flex: 1;
-        flex-basis: 25%;
-      }
-    }
-  }
-
-  .placeholder {
-    color: #8b8b8b;
-  }
-
-  .date-popover {
-    overflow-x: hidden;
-    overflow-y: hidden;
-    outline: none;
-    margin: 0 -1px;
-    min-width: 100%;
-    width: 100%;
-    border-radius: 0 0 .28571429rem .28571429rem;
-    box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
-    background: #fff;
-    transition: opacity .1s ease;
-    position: absolute;
-    left: 0;
-    top: 103%;
-    z-index: 10;
-    border: 1px solid $lightgray;
-    font-size: 1rem;
-    font-weight: 200;
-  }
-
-  .month-picker-wrapper {
-    position: relative;
-    display: block;
-    min-width: 200px;
-  }
-
-  .month-year-label {
-    outline: none;
-  }
-  .text {
-    position: relative;
-    z-index: 2;
-  }
-  .month-year-display {
+.picker {
+  .next,
+  .prev {
     &:hover {
       cursor: pointer;
     }
   }
 
-  .next,
-  .prev {
-    width: 16%;
-    float: left;
-    text-indent: -10000px;
-    position: relative;
-
-    &:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
-      border: 6px solid transparent;
+  .monthItem {
+    .item {
+      border-top: 1px solid $lightgray;
+      &:hover {
+        cursor: pointer;
+        background-color: $lightgray;
+      }
     }
   }
-  .next {
-    &:after {
-      border-left: 10px solid #000;
-      margin-left: 5px;
-    }
 
+  .flexbox {
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    div {
+      flex-grow: 1;
+      padding: 15px 0;
+    }
+    .item {
+      flex: 1;
+      flex-basis: 25%;
+    }
+  }
+}
+
+.placeholder {
+  color: #8b8b8b;
+}
+
+.date-popover {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  outline: none;
+  margin: 0 -1px;
+  min-width: 100%;
+  width: 100%;
+  border-radius: 0 0 .28571429rem .28571429rem;
+  box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
+  background: #fff;
+  transition: opacity .1s ease;
+  position: absolute;
+  left: 0;
+  top: 103%;
+  z-index: 10;
+  border: 1px solid $lightgray;
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.month-picker-wrapper {
+  position: relative;
+  display: block;
+  min-width: 200px;
+}
+
+.month-year-label {
+  outline: none;
+}
+.text {
+  position: relative;
+  z-index: 2;
+}
+.month-year-display {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.next,
+.prev {
+  width: 16%;
+  float: left;
+  text-indent: -10000px;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    border: 6px solid transparent;
+  }
+}
+.next {
+  &:after {
+    border-left: 10px solid #000;
+    margin-left: 5px;
   }
 
-  .prev {
-    &:after {
-      border-right: 10px solid #000;
-      margin-left: -5px;
-    }
+}
+
+.prev {
+  &:after {
+    border-right: 10px solid #000;
+    margin-left: -5px;
   }
+}
+
 </style>
