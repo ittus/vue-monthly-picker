@@ -43,7 +43,6 @@ export default {
       default: false
     },
     'inputClass': {
-      type: String,
       default: ''
     },
     'placeHolder': {
@@ -129,6 +128,7 @@ export default {
     selectPicker () {
       const yrMonth = this.year + '/' + (this.month.length < 2 ? '0' + this.month : this.month)
       this.$emit('input', moment(yrMonth, 'YYYY/MM'))
+      this.$emit('selected', moment(yrMonth, 'YYYY/MM'))
     },
     setValue (value) {
       if (typeof value === 'string') {

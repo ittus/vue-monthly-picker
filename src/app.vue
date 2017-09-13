@@ -7,6 +7,7 @@
        :inputClass="{'input': isDisplayInput}"
        :disabled="isDisable"
        :monthLabels="locale"
+       @selected="handleSelect"
        v-model="selectedMonth">
       </vue-monthly-picker>
     </div>
@@ -67,6 +68,11 @@ export default {
           monthLabels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
         }
       ]
+    }
+  },
+  methods: {
+    handleSelect (value) {
+      console.log('Select', value)
     }
   },
   components: {

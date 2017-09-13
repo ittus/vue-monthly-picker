@@ -32,6 +32,12 @@ Vue.component('my-component', {
 | monthLabels                  | Array          |    `['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']`         | Customize month labels                      |
 | placeHolder                  | String          |    ''         | Place holder when value is null                      |
 
+## Events
+
+| Event | Params | Description |
+|-------|--------|-------------|
+|selected| selected month in `moment`| A month has been selected |
+
 ## Build Setup
 
 ``` bash
