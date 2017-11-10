@@ -7,14 +7,21 @@
        :inputClass="{'input': isDisplayInput}"
        :disabled="isDisable"
        :monthLabels="locale"
+       :min="min"
+       :max="max"
        @selected="handleSelect"
        v-model="selectedMonth">
       </vue-monthly-picker>
     </div>
     <b-field grouped class="control-group">
-      <b-field label="State" expanded>
+      <b-field label="Disabled" expanded>
           <b-checkbox v-model="isDisable">
-              Disabled
+              {{ isDisable ? 'Disabled': 'Enable'}}
+          </b-checkbox>
+      </b-field>
+      <b-field label="Range" expanded>
+          <b-checkbox v-model="isLimitRange">
+              {{ rangeDisplay }}
           </b-checkbox>
       </b-field>
       <b-field label="Display" expanded position="is-centered">
@@ -67,12 +74,36 @@ export default {
           title: 'Korean',
           monthLabels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
         }
-      ]
+      ],
+      min: null,
+      max: null,
+      isLimitRange: false
+    }
+  },
+  computed: {
+    rangeDisplay () {
+      if (!this.min || !this.max) {
+        return 'Disabled'
+      }
+      return this.min.format('YYYY/MM') + '-' + this.max.format('YYYY/MM')
+    }
+  },
+  watch: {
+    isLimitRange (newValue) {
+      if (newValue) {
+        this.setSelectRange(moment().subtract(6, 'months'), moment().add(6, 'months'))
+      } else {
+        this.setSelectRange(null, null)
+      }
     }
   },
   methods: {
     handleSelect (value) {
       console.log('Select', value)
+    },
+    setSelectRange (min, max) {
+      this.min = min
+      this.max = max
     }
   },
   components: {

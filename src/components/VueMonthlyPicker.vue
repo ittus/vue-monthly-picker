@@ -20,7 +20,16 @@
           </div>
           <div class="flexbox monthItem">
             <template v-for="(month, idx) in monthLabels">
-              <div class="item" @click="selectMonth(idx)" :key="idx">{{month}}</div>
+              <div class="item active"
+                v-if="isActive(idx)"
+                @click="selectMonth(idx)"
+                :key="idx">{{month}}
+              </div>
+              <div v-else
+                :key="idx"
+                class="item deactive">
+                {{ month }}
+              </div>
             </template>
           </div>
         </div>
@@ -54,6 +63,12 @@ export default {
       default: function () {
         return ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
       }
+    },
+    min: {
+      default: null
+    },
+    max: {
+      default: null
     }
   },
   data () {
@@ -138,6 +153,17 @@ export default {
         this.month = value.format('MM')
         this.year = value.format('YYYY')
       }
+    },
+    isActive (idx) {
+      let realMonth = idx + 1
+      const yrMonth = this.year + '/' + (realMonth < 10 ? '0' + realMonth : realMonth)
+      if (this.min && moment(yrMonth, 'YYYY/MM').isBefore(this.min)) {
+        return false
+      }
+      if (this.max && moment(yrMonth, 'YYYY/MM').isAfter(this.max)) {
+        return false
+      }
+      return true
     }
   }
 }
@@ -157,9 +183,14 @@ $lightgray: #d4d4d4;
   .monthItem {
     .item {
       border-top: 1px solid $lightgray;
-      &:hover {
-        cursor: pointer;
-        background-color: $lightgray;
+      &.active {
+        &:hover {
+          cursor: pointer;
+          background-color: $lightgray;
+        }
+      }
+      &.deactive {
+        color: #999999
       }
     }
   }
@@ -253,5 +284,4 @@ $lightgray: #d4d4d4;
     margin-left: -5px;
   }
 }
-
 </style>

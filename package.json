@@ -1,6 +1,6 @@
 {
   "name": "vue-monthly-picker",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Vue Monthly Picker",
   "author": "Vu Minh Thang <vuminhthang.cm@gmail.com>",
   "main": "dist/lib/vue-monthly-picker.min.js",

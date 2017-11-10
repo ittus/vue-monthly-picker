@@ -28,9 +28,11 @@ Vue.component('my-component', {
 
 | Prop                  | Type            | Default     | Description                              |
 |-----------------------|-----------------|-------------|------------------------------------------|
-| disabled                 | Boolean    |      false     | Enable/disable component             |
+| disabled                 | Boolean    |      `false`     | Enable/disable component             |
 | monthLabels                  | Array          |    `['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']`         | Customize month labels                      |
 | placeHolder                  | String          |    ''         | Place holder when value is null                      |
+| min                  | moment          |    `null`         | Minimum time to select                      |
+| max                  | moment          |    `null`         | Maximum time to select                      |
 
 ## Events
 
