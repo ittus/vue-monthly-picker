@@ -69,6 +69,10 @@ export default {
     },
     max: {
       default: null
+    },
+    dateFormat: {
+      type: String,
+      default: 'YYYY/MM'
     }
   },
   data () {
@@ -100,7 +104,8 @@ export default {
     },
     displayText () {
       if (this.value) {
-        return this.year + ' / ' + (this.month.length < 2 ? '0' + this.month : this.month)
+        let yrMonth = this.year + ' / ' + (this.month.length < 2 ? '0' + this.month : this.month)
+        return moment(yrMonth, 'YYYY/MM').format(this.dateFormat)
       } else {
         return this.placeHolder
       }

@@ -33,6 +33,7 @@ Vue.component('my-component', {
 | placeHolder                  | String          |    ''         | Place holder when value is null                      |
 | min                  | moment          |    `null`         | Minimum time to select                      |
 | max                  | moment          |    `null`         | Maximum time to select                      |
+| dateFormat                  | String          |    `YYYY/MM`         | Display format.                      |
 
 ## Events
 
