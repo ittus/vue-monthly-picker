@@ -223,16 +223,14 @@ $lightgray: #d4d4d4;
   overflow-x: hidden;
   overflow-y: hidden;
   outline: none;
-  margin: 0 -1px;
-  min-width: 100%;
+  max-width: 350px;
   width: 100%;
   border-radius: 0 0 .28571429rem .28571429rem;
   box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
   background: #fff;
   transition: opacity .1s ease;
-  position: absolute;
-  left: 0;
-  top: 103%;
+  position: relative;
+  margin: auto;
   z-index: 10;
   border: 1px solid $lightgray;
   font-size: 1rem;
@@ -288,5 +286,28 @@ $lightgray: #d4d4d4;
     border-right: 10px solid #000;
     margin-left: -5px;
   }
+}
+
+.input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.25em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding: 2px calc(.625em - 1px);
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px hsla(0,0%,4%,.1);
+  max-width: 100%;
+  width: 100%;
 }
 </style>
