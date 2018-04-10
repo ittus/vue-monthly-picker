@@ -2,6 +2,9 @@
 
 > Vue Monthly Picker Components
 
+[![npm version](https://badge.fury.io/js/vue-monthly-picker.svg)](https://badge.fury.io/js/vue-monthly-picker)
+[![CircleCI](https://circleci.com/gh/ittus/vue-monthly-picker.svg?style=shield&circle-token=fa41e296ca28a346dfcea28addb1d5f671f187a8)](https://circleci.com/gh/ittus/vue-monthly-picker)
+
 Checkout demo at https://ittus.github.io/vue-monthly-picker/
 # Install
 ```
