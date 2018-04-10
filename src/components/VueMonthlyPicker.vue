@@ -174,140 +174,142 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $lightgray: #d4d4d4;
 
-.picker {
-  .next,
-  .prev {
+.vue-monthly-picker {
+  .picker {
+    .next,
+    .prev {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .monthItem {
+      .item {
+        border-top: 1px solid $lightgray;
+        &.active {
+          &:hover {
+            cursor: pointer;
+            background-color: $lightgray;
+          }
+        }
+        &.deactive {
+          color: #999999
+        }
+      }
+    }
+
+    .flexbox {
+      padding: 0px;
+      display: flex;
+      flex-wrap: wrap;
+      div {
+        flex-grow: 1;
+        padding: 15px 0;
+      }
+      .item {
+        flex: 1;
+        flex-basis: 25%;
+      }
+    }
+  }
+
+  .placeholder {
+    color: #8b8b8b;
+  }
+
+  .date-popover {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    outline: none;
+    max-width: 350px;
+    width: 100%;
+    border-radius: 0 0 .28571429rem .28571429rem;
+    box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
+    background: #fff;
+    transition: opacity .1s ease;
+    position: absolute;
+    margin: auto;
+    z-index: 10;
+    border: 1px solid $lightgray;
+    font-size: 1rem;
+    font-weight: 200;
+  }
+
+  .month-picker-wrapper {
+    position: relative;
+    display: block;
+    min-width: 200px;
+  }
+
+  .month-year-label {
+    outline: none;
+  }
+  .text {
+    position: relative;
+    z-index: 2;
+  }
+  .month-year-display {
     &:hover {
       cursor: pointer;
     }
   }
 
-  .monthItem {
-    .item {
-      border-top: 1px solid $lightgray;
-      &.active {
-        &:hover {
-          cursor: pointer;
-          background-color: $lightgray;
-        }
-      }
-      &.deactive {
-        color: #999999
-      }
+  .next,
+  .prev {
+    width: 16%;
+    float: left;
+    text-indent: -10000px;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      border: 6px solid transparent;
+    }
+  }
+  .next {
+    &:after {
+      border-left: 10px solid #000;
+      margin-left: 5px;
+    }
+
+  }
+
+  .prev {
+    &:after {
+      border-right: 10px solid #000;
+      margin-left: -5px;
     }
   }
 
-  .flexbox {
-    padding: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    div {
-      flex-grow: 1;
-      padding: 15px 0;
-    }
-    .item {
-      flex: 1;
-      flex-basis: 25%;
-    }
+  .input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.25em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding: 2px calc(.625em - 1px);
+    position: relative;
+    vertical-align: top;
+    background-color: #fff;
+    border-color: #dbdbdb;
+    color: #363636;
+    box-shadow: inset 0 1px 2px hsla(0,0%,4%,.1);
+    max-width: 100%;
+    width: 100%;
   }
-}
-
-.placeholder {
-  color: #8b8b8b;
-}
-
-.date-popover {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  outline: none;
-  max-width: 350px;
-  width: 100%;
-  border-radius: 0 0 .28571429rem .28571429rem;
-  box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
-  background: #fff;
-  transition: opacity .1s ease;
-  position: relative;
-  margin: auto;
-  z-index: 10;
-  border: 1px solid $lightgray;
-  font-size: 1rem;
-  font-weight: 200;
-}
-
-.month-picker-wrapper {
-  position: relative;
-  display: block;
-  min-width: 200px;
-}
-
-.month-year-label {
-  outline: none;
-}
-.text {
-  position: relative;
-  z-index: 2;
-}
-.month-year-display {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.next,
-.prev {
-  width: 16%;
-  float: left;
-  text-indent: -10000px;
-  position: relative;
-
-  &:after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    border: 6px solid transparent;
-  }
-}
-.next {
-  &:after {
-    border-left: 10px solid #000;
-    margin-left: 5px;
-  }
-
-}
-
-.prev {
-  &:after {
-    border-right: 10px solid #000;
-    margin-left: -5px;
-  }
-}
-
-.input {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  align-items: center;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  box-shadow: none;
-  display: inline-flex;
-  font-size: 1rem;
-  height: 2.25em;
-  justify-content: flex-start;
-  line-height: 1.5;
-  padding: 2px calc(.625em - 1px);
-  position: relative;
-  vertical-align: top;
-  background-color: #fff;
-  border-color: #dbdbdb;
-  color: #363636;
-  box-shadow: inset 0 1px 2px hsla(0,0%,4%,.1);
-  max-width: 100%;
-  width: 100%;
 }
 </style>
