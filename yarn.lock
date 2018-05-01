@@ -4345,8 +4345,8 @@ mocha@^3.2.0:
     supports-color "3.1.2"
 
 moment@^2.18.1:
-  version "2.19.4"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.4.tgz#17e5e2c6ead8819c8ecfad83a0acccb312e94682"
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -4887,6 +4887,10 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+peer-deps-externals-webpack-plugin@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/peer-deps-externals-webpack-plugin/-/peer-deps-externals-webpack-plugin-1.0.2.tgz#c2fad829d27874b1700bb2e8f90dbc2f4cada2d1"
 
 pend@~1.2.0:
   version "1.2.0"

@@ -32,9 +32,7 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
-  "dependencies": {
-    "moment": "^2.18.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
@@ -82,12 +80,14 @@
     "karma-webpack": "^2.0.2",
     "lolex": "^1.5.2",
     "mocha": "^3.2.0",
+    "moment": "^2.18.1",
     "nightwatch": "^0.9.12",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "ora": "^1.2.0",
+    "peer-deps-externals-webpack-plugin": "^1.0.2",
     "phantomjs-prebuilt": "^2.1.14",
     "rimraf": "^2.6.0",
     "sass-loader": "^6.0.5",
@@ -118,6 +118,7 @@
     "not ie <= 8"
   ],
   "peerDependencies": {
+    "moment": "^2.18.1",
     "vue": "^2.2.1"
   }
 }

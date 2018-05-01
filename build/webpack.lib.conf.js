@@ -5,6 +5,7 @@ var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -29,6 +30,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
+    new PeerDepsExternalsPlugin(),
     new webpack.DefinePlugin({
       'process.env': env
     }),
