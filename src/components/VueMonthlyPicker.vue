@@ -14,9 +14,9 @@
       <div class="date-popover" :class="menuClass" :style="menuStyle" tabindex="-1">
         <div class="picker" style="text-align: center">
           <div class="flexbox">
-            <span class="prev" @click="prevYear"></span>
+            <span class="prev" @click="prevYear" :class="{deactive: !canBack}"></span>
             <div>{{year}}</div>
-            <span class="next" @click="nextYear"></span>
+            <span class="next" @click="nextYear" :class="{deactive: !canNext}"></span>
           </div>
           <div class="flexbox monthItem">
             <template v-for="(month, idx) in monthLabels">
@@ -104,11 +104,32 @@ export default {
     },
     displayText () {
       if (this.value) {
-        let yrMonth = this.year + ' / ' + (this.month.length < 2 ? '0' + this.month : this.month)
-        return moment(yrMonth, 'YYYY/MM').format(this.dateFormat)
+        let valueMoment = null
+        if (typeof value === 'string') {
+          valueMoment = moment(this.value)
+        } else {
+          valueMoment = this.value
+        }
+        if (valueMoment && valueMoment.isValid()) {
+          return valueMoment.format(this.dateFormat)
+        }
       } else {
         return this.placeHolder
       }
+    },
+    canBack () {
+      if (!this.min) return true
+      const currentVal = this.internalMomentValue.startOf('year')
+      return this.min.isBefore(currentVal)
+    },
+    canNext () {
+      if (!this.max) return true
+      const currentVal = this.internalMomentValue.endOf('year')
+      return currentVal.isBefore(this.max)
+    },
+    internalMomentValue () {
+      const yrMonth = this.year + '/' + (this.month.length < 2 ? '0' + this.month : this.month)
+      return moment(yrMonth, 'YYYY/MM')
     }
   },
   methods: {
@@ -119,7 +140,6 @@ export default {
         } else {
         }
       }, false)
-
       this.setValue(this.value)
     },
     openMenu () {
@@ -128,27 +148,26 @@ export default {
       }
     },
     closeMenu () {
-      if (this.showMenu) {
-        this.showMenu = false
-        this.selectPicker()
-      }
+      this.showMenu = false
     },
     prevYear () {
+      if (!this.canBack) return
       let newYear = parseInt(this.year) - 1
       this.year = newYear.toString()
     },
     nextYear () {
+      if (!this.canNext) return
       let newYear = parseInt(this.year) + 1
       this.year = newYear.toString()
     },
     selectMonth (idx) {
       this.month = (parseInt(idx) + 1).toString()
+      this.selectPicker()
       this.closeMenu()
     },
     selectPicker () {
-      const yrMonth = this.year + '/' + (this.month.length < 2 ? '0' + this.month : this.month)
-      this.$emit('input', moment(yrMonth, 'YYYY/MM'))
-      this.$emit('selected', moment(yrMonth, 'YYYY/MM'))
+      this.$emit('input', this.internalMomentValue)
+      this.$emit('selected', this.internalMomentValue)
     },
     setValue (value) {
       if (typeof value === 'string') {
@@ -194,9 +213,6 @@ $lightgray: #d4d4d4;
             cursor: pointer;
             background-color: $lightgray;
           }
-        }
-        &.deactive {
-          color: #999999
         }
       }
     }
@@ -279,13 +295,28 @@ $lightgray: #d4d4d4;
       border-left: 10px solid #000;
       margin-left: 5px;
     }
-
+    &.deactive {
+      &:hover {
+        cursor: default;
+      }
+      &:after {
+        border-left: 10px solid #999999;
+      }
+    }
   }
 
   .prev {
     &:after {
       border-right: 10px solid #000;
       margin-left: -5px;
+    }
+    &.deactive {
+      &:hover {
+        cursor: default;
+      }
+      &:after {
+        border-right: 10px solid #999999;
+      }
     }
   }
 
@@ -310,6 +341,9 @@ $lightgray: #d4d4d4;
     box-shadow: inset 0 1px 2px hsla(0,0%,4%,.1);
     max-width: 100%;
     width: 100%;
+  }
+  .deactive {
+    color: #999999;
   }
 }
 </style>
