@@ -105,7 +105,7 @@ export default {
     displayText () {
       if (this.value) {
         let valueMoment = null
-        if (typeof value === 'string') {
+        if (typeof this.value === 'string') {
           valueMoment = moment(this.value)
         } else {
           valueMoment = this.value
