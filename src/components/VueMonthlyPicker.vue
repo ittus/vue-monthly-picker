@@ -21,11 +21,13 @@
           <div class="flexbox monthItem">
             <template v-for="(month, idx) in monthLabels">
               <div class="item active"
+                :class="{'selected': isCurrentSelected(year, idx)}"
                 v-if="isActive(idx)"
                 @click="selectMonth(idx)"
                 :key="idx">{{month}}
               </div>
               <div v-else
+                :class="{'selected': isCurrentSelected(year, idx)}"
                 :key="idx"
                 class="item deactive">
                 {{ month }}
@@ -137,7 +139,6 @@ export default {
       document.addEventListener('click', (e) => {
         if (this.$el && !this.$el.contains(e.target)) {
           this.closeMenu()
-        } else {
         }
       }, false)
       this.setValue(this.value)
@@ -188,6 +189,21 @@ export default {
         return false
       }
       return true
+    },
+    isCurrentSelected (year, monthIdx) {
+      if (!this.value) {
+        return false
+      }
+      let checkValue = this.value
+      if (typeof this.value === 'string') {
+        checkValue = moment(this.value)
+      }
+      if (checkValue && checkValue.isValid()) {
+        const currentMonth = checkValue.format('MM')
+        const currentYear = checkValue.format('YYYY')
+        return Number(currentMonth) === Number(monthIdx + 1) && Number(currentYear) === Number(year)
+      }
+      return false
     }
   }
 }
@@ -344,6 +360,13 @@ $lightgray: #d4d4d4;
   }
   .deactive {
     color: #999999;
+  }
+
+  .selected {
+    background: #007bff;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    font-weight: bold;
   }
 }
 </style>
