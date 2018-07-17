@@ -121,16 +121,16 @@ export default {
     },
     canBack () {
       if (!this.min) return true
-      const currentVal = this.internalMomentValue.startOf('year')
+      const currentVal = this.internalMomentValue.clone().startOf('year')
       return this.min.isBefore(currentVal)
     },
     canNext () {
       if (!this.max) return true
-      const currentVal = this.internalMomentValue.endOf('year')
+      const currentVal = this.internalMomentValue.clone().endOf('year')
       return currentVal.isBefore(this.max)
     },
     internalMomentValue () {
-      const yrMonth = this.year + '/' + (this.month.length < 2 ? '0' + this.month : this.month)
+      const yrMonth = this.year + '/' + this.month
       return moment(yrMonth, 'YYYY/MM')
     }
   },
