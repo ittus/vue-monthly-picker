@@ -167,8 +167,8 @@ export default {
       this.closeMenu()
     },
     selectPicker () {
-      this.$emit('input', this.internalMomentValue)
-      this.$emit('selected', this.internalMomentValue)
+      this.$emit('input', this.internalMomentValue.clone())
+      this.$emit('selected', this.internalMomentValue.clone())
     },
     setValue (value) {
       if (typeof value === 'string') {
