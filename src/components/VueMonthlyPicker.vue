@@ -54,7 +54,7 @@ export default {
       default: false
     },
     'inputClass': {
-      default: ''
+      default: 'input'
     },
     'placeHolder': {
       type: String,
