@@ -26,6 +26,7 @@ Vue.component('my-component', {
 </vue-monthly-picker>
 ```
 
+**Note**: `v-model` binding value need to be a **moment** object
 ## Available props
 
 
@@ -37,6 +38,7 @@ Vue.component('my-component', {
 | min                  | moment          |    `null`         | Minimum time to select                      |
 | max                  | moment          |    `null`         | Maximum time to select                      |
 | dateFormat                  | String          |    `YYYY/MM`         | Display format.                      |
+| value                  | moment          |    `null`         | Moment value of selected month and year                  |
 
 ## Events
 
