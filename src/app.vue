@@ -10,7 +10,8 @@
        :min="min"
        :max="max"
        @selected="handleSelect"
-       v-model="selectedMonth">
+       v-model="selectedMonth"
+       :alignment="alignment"
        :selectedBackgroundColor="selectedBackgroundColor">
       </vue-monthly-picker>
     </div>
@@ -43,7 +44,16 @@
               </option>
           </b-select>
       </b-field>
-    </b-field>
+       <b-field label="Alignment" expanded>
+          <b-select placeholder="Select an alignment" v-model="alignment">
+              <option
+                  v-for="alignment in alignments"
+                  :value="alignment"
+                  :key="alignment">
+                  {{ alignment }}
+              </option>
+          </b-select>
+      </b-field>
       <b-field label="Selected background color" expanded>
           <b-select placeholder="Select an color" v-model="selectedBackgroundColor">
               <option
@@ -70,6 +80,7 @@ export default {
       isDisable: false,
       isDisplayInput: true,
       locale: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      alignment: 'left',
       selectedBackgroundColor: 'blue',
       options: [
         {
@@ -88,6 +99,7 @@ export default {
           monthLabels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
         }
       ],
+      alignments: ['left', 'center', 'right'],
       colorExamples: ['blue', 'red', 'black'],
       min: null,
       max: null,

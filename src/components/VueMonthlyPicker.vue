@@ -7,7 +7,7 @@
             class="month-year-display"
             :disabled="disabled"
             :class="[inputClass, {'placeholder': !value}]">
-            {{ displayText }}
+             <div class="display-text" :style="[{'text-align': alignment}]">{{displayText}}</div>
           </div>
       </div>
       <div class="text"></div>
@@ -61,6 +61,9 @@ export default {
       type: String,
       default: ''
     },
+    'alignment': {
+      default: 'left'
+    },
     'selectedBackgroundColor': {
       default: '#007bff'
     },
@@ -105,7 +108,9 @@ export default {
     },
     menuStyle () {
       return {
-        display: this.showMenu ? 'block' : 'none'
+        display: this.showMenu ? 'block' : 'none',
+        'left': this.alignment === 'right' ? '100%' : this.alignment === 'center' ? '50%' : '',
+        'transform': this.alignment === 'right' ? 'translate(-100%,0)' : this.alignment === 'center' ? 'translate(-50%,0)' : ''
       }
     },
     displayText () {
@@ -373,10 +378,12 @@ $lightgray: #d4d4d4;
   }
 
   .selected {
-    background: #007bff;
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     font-weight: bold;
+  }
+  .display-text {
+    width: 100%;
   }
 }
 </style>
