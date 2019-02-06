@@ -22,6 +22,7 @@
             <template v-for="(month, idx) in monthLabels">
               <div class="item active"
                 :class="{'selected': isCurrentSelected(year, idx)}"
+                :style="[{'background-color': getBackgroundColor(year, idx)}]"
                 v-if="isActive(idx)"
                 @click="selectMonth(idx)"
                 :key="idx">{{month}}
@@ -59,6 +60,9 @@ export default {
     'placeHolder': {
       type: String,
       default: ''
+    },
+    'selectedBackgroundColor': {
+      default: '#007bff'
     },
     monthLabels: {
       type: Array,
@@ -204,6 +208,12 @@ export default {
         return Number(currentMonth) === Number(monthIdx + 1) && Number(currentYear) === Number(year)
       }
       return false
+    },
+    getBackgroundColor (year, monthIdx) {
+      if (this.isCurrentSelected(year, monthIdx)) {
+        return this.selectedBackgroundColor
+      }
+      return
     }
   }
 }
