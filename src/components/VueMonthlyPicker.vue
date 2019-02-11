@@ -62,9 +62,15 @@ export default {
       default: ''
     },
     'alignment': {
-      default: 'left'
+      type: String,
+      default: 'left',
+      validator: function (value) {
+        // The value must match one of these strings
+        return ['left', 'right', 'center'].indexOf(value) !== -1
+      }
     },
     'selectedBackgroundColor': {
+      type: String,
       default: '#007bff'
     },
     monthLabels: {

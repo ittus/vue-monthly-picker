@@ -39,6 +39,8 @@ Vue.component('my-component', {
 | max                  | moment          |    `null`         | Maximum time to select                      |
 | dateFormat                  | String          |    `YYYY/MM`         | Display format.                      |
 | value                  | moment          |    `null`         | Moment value of selected month and year                  |
+| alignment                  | String          |    `left`         | Alignment of input value, possible value: `left`, `right`, `center`                  |
+| selectedBackgroundColor                  | String          |    `#007bff`         | Background color of selected value. It can be HTML color name (red, green, blue) or hexa color code (`#00FF00`, `#0000FF`)                  |
 
 ## Events
 
