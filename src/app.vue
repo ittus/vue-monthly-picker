@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h3>Vue Monthly Picker</h3>
+    <fork-github githubUrl="https://github.com/ittus/vue-monthly-picker"/>
     <div class="demo-component">
       <vue-monthly-picker
        :inputClass="{'input': isDisplayInput}"
@@ -92,6 +93,7 @@
 <script>
 import moment from 'moment'
 import VueMonthlyPicker from './lib'
+import ForkGithub from './common/ForkGithub.vue'
 
 export default {
   name: 'app',
@@ -155,7 +157,8 @@ export default {
     }
   },
   components: {
-    VueMonthlyPicker
+    VueMonthlyPicker,
+    ForkGithub
   }
 }
 </script>
@@ -178,7 +181,7 @@ export default {
   margin-top: 100px;
 }
 .control {
-  text-align: center;
+  text-align: center !important;
 }
 .option-list {
   margin-top: 20px;
