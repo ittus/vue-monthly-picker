@@ -6,6 +6,10 @@
 [![CircleCI](https://circleci.com/gh/ittus/vue-monthly-picker.svg?style=shield&circle-token=fa41e296ca28a346dfcea28addb1d5f671f187a8)](https://circleci.com/gh/ittus/vue-monthly-picker)
 
 Checkout demo at https://ittus.github.io/vue-monthly-picker/
+
+# Support
+<a href="https://www.buymeacoffee.com/8buMYCOog" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"></a>
+
 # Install
 ```
 npm install vue-monthly-picker --save
@@ -41,6 +45,8 @@ Vue.component('my-component', {
 | value                  | moment          |    `null`         | Moment value of selected month and year                  |
 | alignment                  | String          |    `left`         | Alignment of input value, possible value: `left`, `right`, `center`                  |
 | selectedBackgroundColor                  | String          |    `#007bff`         | Background color of selected value. It can be HTML color name (red, green, blue) or hexa color code (`#00FF00`, `#0000FF`)                  |
+| clearOption                  | Boolean          |    true         | Show/Hide clear option                  |
+
 
 ## Events
 
@@ -52,23 +58,14 @@ Vue.component('my-component', {
 
 ``` bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn dev
 
 # build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
+yarn build
 
 # run all tests
-npm test
+yarn test
 ```

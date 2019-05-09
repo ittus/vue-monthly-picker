@@ -3,11 +3,14 @@
     <div class="month-picker-wrapper"
          :class="{ 'active visible':showMenu }">
       <div class="month-year-label picker" type="text" autocomplete="off" tabindex="0" @click="openMenu">
-          <div  @click="openMenu"
+          <div @click="openMenu"
             class="month-year-display"
             :disabled="disabled"
             :class="[inputClass, {'placeholder': !value}]">
-             <div class="display-text" :style="[{'text-align': alignment}]">{{displayText}}</div>
+             <div class="display-text" :class="'display-text-'+alignment" :style="[{'text-align': alignment}]">{{displayText}}</div>
+             <span class="vmp-input-append" @click.stop.prevent="clearSelect" v-if="clearOption && value">
+               <i class="vmp-clear-icon"/>
+             </span>
           </div>
       </div>
       <div class="text"></div>
@@ -88,6 +91,10 @@ export default {
     dateFormat: {
       type: String,
       default: 'YYYY/MM'
+    },
+    clearOption: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -224,7 +231,10 @@ export default {
       if (this.isCurrentSelected(year, monthIdx)) {
         return this.selectedBackgroundColor
       }
-      return
+    },
+    clearSelect () {
+      this.$emit('input', null)
+      this.$emit('selected', null)
     }
   }
 }
@@ -299,6 +309,12 @@ $lightgray: #d4d4d4;
 
   .month-year-label {
     outline: none;
+    .vmp-input-append {
+      display: none;
+    }
+    &:hover .vmp-input-append {
+      display: block;
+    }
   }
   .text {
     position: relative;
@@ -390,6 +406,33 @@ $lightgray: #d4d4d4;
   }
   .display-text {
     width: 100%;
+  }
+
+  .display-text-right {
+    margin-right: 20px;
+  }
+
+  .vmp-input-append {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    padding: 6px;
+  }
+  .vmp-clear-icon {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-style: normal;
+    color: #555;
+    text-align: center;
+    cursor: pointer;
+    &:before {
+      display: inline-block;
+      content: '\2716';
+      vertical-align: middle;
+    }
   }
 }
 </style>
