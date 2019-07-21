@@ -46,6 +46,7 @@ Vue.component('my-component', {
 | alignment                  | String          |    `left`         | Alignment of input value, possible value: `left`, `right`, `center`                  |
 | selectedBackgroundColor                  | String          |    `#007bff`         | Background color of selected value. It can be HTML color name (red, green, blue) or hexa color code (`#00FF00`, `#0000FF`)                  |
 | clearOption                  | Boolean          |    true         | Show/Hide clear option                  |
+| inputClass                  | String          |    `input`         | Customize css class for visible element                  |
 
 
 ## Events
