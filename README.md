@@ -59,14 +59,14 @@ Vue.component('my-component', {
 
 ``` bash
 # install dependencies
-yarn install
+npm install
 
 # serve with hot reload at localhost:8080
-yarn dev
+npm run dev
 
 # build for production with minification
-yarn build
+npm run build
 
 # run all tests
-yarn test
+npm run test
 ```
